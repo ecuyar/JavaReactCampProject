@@ -18,11 +18,11 @@ public interface ProductService {
 	// productmanagerda çağrılabilir hale geliyor
 	DataResult<Product> getByProductName(String productName);
 
-	DataResult<Product> getByProductNameAndCategoryId(String productName, int id);
+	DataResult<Product> getByProductNameAndCategory(String productName, int categoryId);
 
-	DataResult<List<Product>> getByProductNameOrCategoryId(String productName, int id);
+	DataResult<List<Product>> getByProductNameOrCategory(String productName, int categoryId);
 
-	DataResult<List<Product>> getByCategoryIdIn(List<Integer> categories);
+	DataResult<List<Product>> getByCategoryIn(List<Integer> categories);
 
 	DataResult<List<Product>> getByProductNameContains(String productName);
 

@@ -1,7 +1,5 @@
 package kodlamaio.northwind.entities.concretes;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,5 +42,5 @@ public class Product {
 
 	@ManyToOne()
 	@JoinColumn(name = "category_id")
- 	private Category category;
+	private Category category;
 }

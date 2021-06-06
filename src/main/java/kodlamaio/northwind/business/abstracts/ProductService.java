@@ -10,6 +10,11 @@ public interface ProductService {
 
 	// dataresult ya da result dönecek her zaman
 	DataResult<List<Product>> getAll();
+	
+	// pagination olan bir servis
+	DataResult<List<Product>> getAll(int pageNo, int pageSize);
+	
+	DataResult<List<Product>> getAllSorted();
 
 	Result add(Product product);
 
@@ -18,15 +23,16 @@ public interface ProductService {
 	// productmanagerda çağrılabilir hale geliyor
 	DataResult<Product> getByProductName(String productName);
 
-	DataResult<Product> getByProductNameAndCategory(String productName, int categoryId);
+// DataResult<Product> getByProductNameAndCategory(String productName,int categoryId);
+	DataResult<Product> getByProductNameAndCategoryId(String productName, int categoryId);
 
-	DataResult<List<Product>> getByProductNameOrCategory(String productName, int categoryId);
+	DataResult<List<Product>> getByProductNameOrCategoryId(String productName, int categoryId);
 
-	DataResult<List<Product>> getByCategoryIn(List<Integer> categories);
+	DataResult<List<Product>> getByCategoryIdIn(List<Integer> categories);
 
 	DataResult<List<Product>> getByProductNameContains(String productName);
 
 	DataResult<List<Product>> getByProductNameStartsWith(String productName);
 
-	DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+	DataResult<List<Product>> getByNameAndCategoryId(String productName, int categoryId);
 }

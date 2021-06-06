@@ -13,12 +13,15 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
 	// database containing WHERE ProductName = '...'
 	Product getByProductName(String productName);
 
-	Product getByProductNameAndCategory(String productName, int categoryId);
- 
-	List<Product> getByProductNameOrCategory(String productName, int categoryId);
+	// servise istek atılınca tablo eşleşmelerinden ötürü id yi category nesnesi
+	// gibi görüyor hata veriyor.
+	// bu yüzden _ yazıp hangi sütunu(id'si) değerlendireceğini yazıyoruz
+	Product getByProductNameAndCategory_CategoryId(String productName, int categoryId);
+
+	List<Product> getByProductNameOrCategory_CategoryId(String productName, int categoryId);
 
 	// select * from products where category_id in (1,2,3,4)...
-	List<Product> getByCategoryIn(List<Integer> categories);
+	List<Product> getByCategory_CategoryIdIn(List<Integer> categories);
 
 	List<Product> getByProductNameContains(String productName);
 
@@ -26,5 +29,5 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
 
 	// JPQL
 	@Query("From Product Where productName = :productName And category.categoryId = :categoryId")
-	List<Product> getByNameAndCategory(String productName, int categoryId);
+	List<Product> getByNameAndCategory_CategoryId(String productName, int categoryId);
 }

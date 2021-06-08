@@ -5,15 +5,16 @@ import java.util.List;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
 import kodlamaio.northwind.entities.concretes.Product;
+import kodlamaio.northwind.entities.dtos.ProductWithCategoryDto;
 
 public interface ProductService {
 
 	// dataresult ya da result dönecek her zaman
 	DataResult<List<Product>> getAll();
-	
+
 	// pagination olan bir servis
 	DataResult<List<Product>> getAll(int pageNo, int pageSize);
-	
+
 	DataResult<List<Product>> getAllSorted();
 
 	Result add(Product product);
@@ -35,4 +36,7 @@ public interface ProductService {
 	DataResult<List<Product>> getByProductNameStartsWith(String productName);
 
 	DataResult<List<Product>> getByNameAndCategoryId(String productName, int categoryId);
+
+	// service with join
+	DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 }
